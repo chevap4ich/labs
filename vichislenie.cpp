@@ -4,7 +4,6 @@
 using namespace std;
 int main(){
     double x = 0;
-    //считаем левую часть
     cout << "enter the power of e" << endl;
     cin  >> x;
     
@@ -13,7 +12,7 @@ int main(){
     cout << "enter the number >1" << endl;
     cin >> k;
     int n = 0;
-    cout << "kolichestvo znakov posle zapyatoy" << endl;
+    cout << "kolichestvo znakov posle zapyatoy -" << endl;
     cin >> n;
     double f = 1; //факториал
     double x1 = 0; //х в степени р

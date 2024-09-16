@@ -25,7 +25,7 @@ int main(){
         f = f*(p+1);
         x1 = pow(x,p+1);
         sum = sum + x1/f;
-        if (x1/f < pow(10,-k)){
+        if (abs(x1/f) < pow(10,-k)){
             break;
         }
     }

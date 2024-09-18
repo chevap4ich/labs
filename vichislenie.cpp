@@ -33,5 +33,5 @@ int main(){
     cout << fixed << setprecision(n) << exp(x) << endl;
     cout << "approximate value = ";
     cout << fixed << setprecision(n) << sum;
-    return(0);
+    return 0;
 }

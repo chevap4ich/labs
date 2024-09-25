@@ -73,7 +73,5 @@ int main(){
     for (int i = 0; i < size; i++){
         cout << d_arr[i] << " ";
     }   
-        
-    
     delete[]d_arr;
 }

@@ -38,7 +38,7 @@ int main(){
         if (minValue > maxValue){
         cout << "max must be bigger than min";
         return 0;
-    }
+        }
         for (int i = 0; i < n; i++){
             d_arr[i] = rand() % (maxValue - minValue +1) + minValue;
             cout << d_arr[i] << " ";

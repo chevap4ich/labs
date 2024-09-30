@@ -66,7 +66,6 @@ int main(){
             }
     }
     cout << "sum between zeros = " << sum << endl;
-    int t = 0;
     for (int k = 0; k < n; k++){
         for (int i = 1; i < n; i++){
             if (d_arr[i] < 0 && d_arr[i-1] >= 0){

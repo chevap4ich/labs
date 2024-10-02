@@ -14,18 +14,16 @@ int main(){
     int n = 0;
     cout << "kolichestvo znakov posle zapyatoy -" << endl;
     cin >> n;
-    double f = 1; //факториал
-    double x1 = 0; //х в степени р
+    double x1 = 1; //х в степени р
     double sum = 1; //сумма
-    for (int p = 0;p >= 0; p++){
+    for (int p = 1;p >= 0; p++){
         if (k <= 1){ //проверка k
             cout << "wrong number, try again";
             return(0);
         }
-        f = f*(p+1);
-        x1 = pow(x,p+1);
-        sum = sum + x1/f;
-        if (abs(x1/f) < pow(10,-k)){
+        x1 = (x1 * x) / p;
+        sum = sum + x1;
+        if (abs(x1) < pow(10,-k)){
             break;
         }
     }

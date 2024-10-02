@@ -54,7 +54,8 @@ int main(){
             }
     }
     int c = 0;
-    for (int i = 0; i < n; i++){
+    if (zeros > 1){
+        for (int i = 0; i < n; i++){
             if (d_arr[i] == 0){
                 for (i; i < n && c < zeros; i++){
                     sum = sum + d_arr[i];
@@ -64,8 +65,9 @@ int main(){
                 } 
                 break;
             }
+        }
+        cout << "sum between zeros = " << sum << endl;
     }
-    cout << "sum between zeros = " << sum << endl;
     for (int k = 0; k < n; k++){
         for (int i = 1; i < n; i++){
             if (d_arr[i] < 0 && d_arr[i-1] >= 0){

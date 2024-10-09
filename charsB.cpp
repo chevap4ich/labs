@@ -14,8 +14,8 @@ int main(){
         char* un_chars = new char[256];
         memset(un_chars, 0, 256);
         for (int i = 0; i < strlen(words); i++){
-            if (!un_chars[words[i]]){
-                un_chars[words[i]] = 1;
+            if (!un_chars[(int)words[i]]){
+                un_chars[(int)words[i]] = 1;
                 count++;
             }
         }

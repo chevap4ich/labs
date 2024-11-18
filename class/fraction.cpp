@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "fraction.h"
 #include <string>
 
@@ -296,5 +295,4 @@ std::ostream& operator<<(std::ostream &out, const Fraction &f){
         out << integerPart << '\n';
     }
     return out;
->>>>>>> dda2ceb4080dc983b96e9b0d61f1618717e340ee
 }

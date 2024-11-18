@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #pragma once
 #include <iostream>
 
@@ -50,4 +49,3 @@ private:
 };
 
 std::ostream& operator<<(std::ostream &out, const Fraction &f);
->>>>>>> dda2ceb4080dc983b96e9b0d61f1618717e340ee

@@ -3,6 +3,7 @@
 
 class Fraction {
 public:
+    Fraction() = delete;
     Fraction(int _numerator, int _denominator);
     Fraction(Fraction &other);
     int getNumerator() const;

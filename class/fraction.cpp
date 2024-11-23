@@ -1,6 +1,6 @@
 #include "fraction.h"
 #include <string>
-
+#include <cassert>
 int GCD(int a, int b) {
     if (a < b) {
         std::swap(a, b);
@@ -23,11 +23,9 @@ int digitsCount(const int integerPart) {
 }
 
 Fraction::Fraction(int _numerator, int _denominator) {
+    assert (_denominator != 0 && "denominator != 0 !!!!");
     numerator = _numerator;
     denominator = _denominator;
-    if (denominator == 0) {
-        std::cout << "denominator != 0 !!!!" << '\n'; 
-    }
     this->reduceFraction();
 }
 

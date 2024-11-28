@@ -144,5 +144,9 @@ double averageMarkOfStudents(std::vector<Student*> &students){
             }
         }
     }
+    if (marksNumber == 0){
+        std::cout << "Threre are no students with marks" << '\n';
+        return 0;
+    }
     return sumOfMarks / marksNumber;
 }

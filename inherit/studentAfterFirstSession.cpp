@@ -4,7 +4,7 @@ StudentAfterFirstSession::StudentAfterFirstSession(char* _name, unsigned int _co
     firstSessionMarks = _firstSessionMarks;
 }
 
-StudentAfterFirstSession::StudentAfterFirstSession(Student s, std::vector<unsigned int> _firstSessionMarks) : Student (s.getName(), s.getCourse(), s.getGroup(), s.getRecordBookNumber()){
+StudentAfterFirstSession::StudentAfterFirstSession(const Student &s, std::vector<unsigned int> _firstSessionMarks) : Student (s.getName(), s.getCourse(), s.getGroup(), s.getRecordBookNumber()){
     firstSessionMarks = _firstSessionMarks;
 }
 

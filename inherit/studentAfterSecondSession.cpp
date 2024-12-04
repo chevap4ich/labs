@@ -4,7 +4,7 @@ StudentAfterSecondSession::StudentAfterSecondSession(char* _name, unsigned int _
     secondSessionMarks = _secondSessionMarks;
 }
 
-StudentAfterSecondSession::StudentAfterSecondSession(StudentAfterFirstSession s, std::vector<unsigned int> _secondSessionMarks) : StudentAfterFirstSession(s.getName(), s.getCourse(), s.getGroup(), s.getRecordBookNumber(), s.getFirstSessionMarks()){
+StudentAfterSecondSession::StudentAfterSecondSession(const StudentAfterFirstSession &s, std::vector<unsigned int> _secondSessionMarks) : StudentAfterFirstSession(s.getName(), s.getCourse(), s.getGroup(), s.getRecordBookNumber(), s.getFirstSessionMarks()){
     secondSessionMarks = _secondSessionMarks;
 }
 

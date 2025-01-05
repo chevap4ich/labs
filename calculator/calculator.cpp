@@ -71,6 +71,9 @@ double Calculator::calculation() {
         }
         return numbers.pop();
     }    
+    else {
+        return -1;
+    }
 }
 
 bool Calculator::expressionIsCorrect() const {

@@ -5,7 +5,7 @@ void Calculator::process(std::string &expr) {
 }
 
 double Calculator::calculation() {
-    //if(expressionIsCorrect()) {
+    if(expressionIsCorrect()) {
         std::vector<std::string> expression = splitExpression(this->expression);
         bool isNegative = false;
         bool lastSymbolIsParenthesis = false;
@@ -70,7 +70,7 @@ double Calculator::calculation() {
             numbers.push(result);
         }
         return numbers.pop();
-    //}    
+    }    
 }
 
 bool Calculator::expressionIsCorrect() const {

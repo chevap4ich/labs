@@ -6,7 +6,7 @@ class Calculator {
 public:
     Calculator(){};
     double calculation();
-    void process(std::string &expr);
+    void setExpression(std::string &expr);
     bool expressionIsCorrect() const;
 private:
     Stack<double> numbers;

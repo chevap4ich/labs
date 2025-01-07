@@ -1,6 +1,6 @@
 #include "calculator.h"
 
-void Calculator::process(std::string &expr) {
+void Calculator::setExpression(std::string &expr) {
     this->expression = expr;
 }
 
@@ -70,7 +70,7 @@ double Calculator::calculation() {
             numbers.push(result);
         }
         return numbers.pop();
-    }    
+    } 
     else {
         return -1;
     }

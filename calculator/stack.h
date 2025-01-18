@@ -13,7 +13,7 @@ public:
         delete[]data;
     }
     void operator<<(const T elem);
-    T operator>>(T a);
+    T operator>>(T& a);
     Stack& operator=(const Stack& other);
     bool operator<(Stack& other);
     bool operator>(Stack& other);
@@ -96,13 +96,14 @@ void Stack<T>::operator<<(const T elem){
 }
 
 template<typename T>
-T Stack<T>::operator>>(T a){
+T Stack<T>::operator>>(T& a){
     if (size == 0) {
         std::cerr << "there are no elements in the stack\n";
         throw;
     }
     size--;
-    return data[size];
+    a = data[size];
+    return a;
 }
 
 template<typename T> 

@@ -1,15 +1,15 @@
 #include "calculator.h"
 
-void Calculator::setExpression(std::string &expr) {
+void Calculator::setExpression(std::string& expr) {
     this->expression = expr;
 }
 
 double Calculator::calculation() {
-    if(expressionIsCorrect()) {
+    if (expressionIsCorrect()) {
         std::vector<std::string> expression = splitExpression(this->expression);
         bool isNegative = false;
         bool lastSymbolIsParenthesis = false;
-        for(auto x : expression) {
+        for (auto x : expression) {
             double number;
             if (x == "(") {
                 lastSymbolIsParenthesis = true;
@@ -21,7 +21,7 @@ double Calculator::calculation() {
                 isNegative = true;
                 continue;
             }
-            if ( x != "+" && x != "-" && x != "*" && x != "/" && x != "(" && x != ")"){
+            if (x != "+" && x != "-" && x != "*" && x != "/" && x != "(" && x != ")") {
                 number = std::stod(x);
             }
             else {
@@ -70,9 +70,9 @@ double Calculator::calculation() {
             numbers.push(result);
         }
         return numbers.pop();
-    } 
+    }
     else {
-        return -1;
+        throw;
     }
 }
 
@@ -80,11 +80,14 @@ bool Calculator::expressionIsCorrect() const {
     std::string expr = this->expression;
     int numberOfOpenParantheses = 0;
     int numberOfCloseParantheses = 0;
-    for (int i = 0; i < expr.size(); i++) {
+    for (int i = 0; i < expr.length(); i++) {
         if (!((int)expr[i] >= 40 && (int)expr[i] <= 43) && !((int)expr[i] >= 45 && (int)expr[i] <= 57)) {
             return false;
         }
         if ((i == 0 || i == expr.length() - 1) && (expr[i] == '+' || expr[i] == '*' || expr[i] == '/')) {
+            return false;
+        }
+        if (i == expr.length() - 1 && expr[i] == '(') {
             return false;
         }
         if (expr[i] == '(') {
@@ -99,12 +102,12 @@ bool Calculator::expressionIsCorrect() const {
         if (i != 0 && expr[i] == '-' && (expr[i - 1] == '+' || expr[i - 1] == '-' || expr[i - 1] == '*' || expr[i - 1] == '/')) {
             return false;
         }
-        if (i < expr.length() && expr[i] == ')' && expr[i + 1] != '+' && expr[i + 1] != '-' && expr[i + 1] != '*' && expr[i + 1] != '/' && expr[i + 1] != ')') {
+        if (i < expr.length() - 1 && expr[i] == ')' && expr[i + 1] != '+' && expr[i + 1] != '-' && expr[i + 1] != '*' && expr[i + 1] != '/' && expr[i + 1] != ')') {
             return false;
         }
-        if (i < expr.length() && expr[i] == '(' && expr[i + 1] == '+' && expr[i + 1] == '*' && expr[i + 1] == '/' && expr[i + 1] == ')') {
+        if (i < expr.length() - 1 && expr[i] == '(' && expr[i + 1] == '+' && expr[i + 1] == '*' && expr[i + 1] == '/' && expr[i + 1] == ')') {
             return false;
-        }        
+        }
     }
     if (numberOfOpenParantheses != numberOfCloseParantheses) {
         return false;
@@ -112,18 +115,18 @@ bool Calculator::expressionIsCorrect() const {
     return true;
 }
 
-std::vector<std::string> splitExpression(std::string expr){
+std::vector<std::string> splitExpression(std::string expr) {
     std::vector<std::string> vecExpr;
     std::string number = "";
-    for(int i = 0; i < expr.length(); i++){
-        if(isdigit(expr[i]) || expr[i] == '.'){
+    for (int i = 0; i < expr.length(); i++) {
+        if (isdigit(expr[i]) || expr[i] == '.') {
             number += expr[i];
         }
-        if(isdigit(expr[i]) && expr[i + 1] != '.' && !isdigit(expr[i + 1])){
+        if (isdigit(expr[i]) && expr[i + 1] != '.' && !isdigit(expr[i + 1])) {
             vecExpr.push_back(number);
             number = "";
         }
-        if(expr[i] == '+' || expr[i] == '-' || expr[i] == '*' || expr[i] == '/' || expr[i] == '(' || expr[i] == ')'){
+        if (expr[i] == '+' || expr[i] == '-' || expr[i] == '*' || expr[i] == '/' || expr[i] == '(' || expr[i] == ')') {
             std::string str = "";
             str += expr[i];
             vecExpr.push_back(str);
@@ -149,7 +152,7 @@ int priority(std::string item) {
         return 0;
     }
     else {
-        throw -1;
+        throw - 1;
     }
 
 }
@@ -168,7 +171,7 @@ double operation(const double a, const double b, std::string oper) {
         return a / b;
     }
     else {
-        throw -1;
+        throw - 1;
     }
 }
 

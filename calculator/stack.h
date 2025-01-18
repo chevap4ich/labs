@@ -8,6 +8,7 @@ public:
     int getSize();
     void push(T elem);
     T pop();
+    bool isEmpty();
     ~Stack(){
         delete[]data;
     }
@@ -52,7 +53,7 @@ void Stack<T>::push(T elem) {
         T* tmp = data;
         capacity += 10;
         data = new T[capacity];
-        for(int i = 0; i < size + 1; i++){
+        for(int i = 0; i < size; i++){
             data[i] = tmp[i];
         }
         delete[]tmp;
@@ -72,12 +73,20 @@ T Stack<T>::pop(){
 }
 
 template<typename T>
+bool Stack<T>::isEmpty() {
+    if (!size) {
+        return true;
+    }
+    return false;
+}
+
+template<typename T>
 void Stack<T>::operator<<(const T elem){
     if(size = capacity){
         T* tmp = data;
         capacity += 10;
         data = new T[capacity];
-        for(int i = 0; i < size + 1; i++){
+        for(int i = 0; i < size; i++){
             data[i] = tmp[i];
         }
         delete[]tmp;
@@ -143,8 +152,13 @@ bool Stack<T>::operator==(Stack<T>& other){
 
 template<typename T>
 T Stack<T>::operator[](int i){
+    if (i >= 0 && i < this->size) { 
     T element = this->data[i]; 
     return element;
+    }
+    else {
+        throw;
+    }
 }
 
 template<typename T>

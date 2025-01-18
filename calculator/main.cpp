@@ -3,10 +3,10 @@
 #include "calculator.h"
 int main(){
     Calculator calc{};
-    
     std::string expr;
     std::cin >> expr;
-    calc.process(expr);
+    calc.setExpression(expr);
+    std::cout << calc.expressionIsCorrect() << " ----" << '\n';
     double result = calc.calculation();
     std::cout << "result: "<< result << '\n'; 
     Stack<int> s;

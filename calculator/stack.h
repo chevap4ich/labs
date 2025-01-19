@@ -82,7 +82,7 @@ bool Stack<T>::isEmpty() {
 
 template<typename T>
 void Stack<T>::operator<<(const T elem){
-    if(size = capacity){
+    if(size == capacity){
         T* tmp = data;
         capacity += 10;
         data = new T[capacity];

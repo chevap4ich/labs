@@ -12,7 +12,10 @@ int main(){
     Stack<int> s;
     std::cout << s.getSize() << '\n';
     s.push(10);
-    int a = s.pop();
+    s.push(10);
+    s << 12;
+    Stack<int> s1(s);
+    std::cout << s1.getSize() << '\n';
     std::cout << s.getSize() << '\n';
     /*s.push(12);
     s.push(13);
